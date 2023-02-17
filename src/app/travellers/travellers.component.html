@@ -1,0 +1,56 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <span>Travellers List</span>
+        <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+    <div class="demo-button-container">
+        <button mat-raised-button (click)="addData()" class="demo-button">
+          Add Traveller
+        </button>
+      </div>
+      <div *ngIf="dataSource">      
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+      
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
+      
+        <!-- Place Column -->
+        <ng-container matColumnDef="place">
+          <th mat-header-cell *matHeaderCellDef>Place</th>
+          <td mat-cell *matCellDef="let element">{{element.place}}</td>
+        </ng-container>
+
+        <!-- No of Travellers Column -->
+        <ng-container matColumnDef="noOfTravellers">
+            <th mat-header-cell *matHeaderCellDef>Symbol</th>
+            <td mat-cell *matCellDef="let element">{{element.noOfTravellers}}</td>
+          </ng-container>
+
+          <!-- Budget Per Person Column -->
+          <ng-container matColumnDef="budgetPerPerson">
+            <th mat-header-cell *matHeaderCellDef>Budget Per Person</th>
+            <td mat-cell *matCellDef="let element">{{element.budgetPerPerson}}</td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table></div>
+
+<!--     <app-create-traveller></app-create-traveller> -->
+</div>
+  

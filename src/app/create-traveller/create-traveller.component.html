@@ -1,0 +1,46 @@
+
+<form [formGroup]="form"  class="normal-form">
+            <div class="controles-container">
+                <div class="title">
+                    <h2>Create Traveller</h2></div>
+                <input type="hidden" formControlName="$key">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput placeholder="Enter your name*" >
+                    <mat-error>Please enter you name</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput placeholder="Enter your email*" >
+                    <mat-error >Please enter your valid email</mat-error>
+                </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Place</mat-label>
+                        <mat-select formControlName="place" placeholder="Select the place*">
+                            <mat-option>None</mat-option>
+                            <ng-container *ngFor="let place of places">
+                                <mat-option value="{{place}}">{{place}}</mat-option>
+                            </ng-container>
+                        </mat-select>
+                        <mat-error>Please select a place</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>No. of Travellers</mat-label>
+                        <input formControlName="noOfTravellers" matInput placeholder="Enter number of travellers*" >
+                        <mat-error>Please enter number of travellers</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Budget Per Person</mat-label>
+                        <input formControlName="budgetPerPerson" matInput placeholder="Enter budget of each person" >
+                        <mat-icon matSuffix>
+                            attach_money</mat-icon>
+                            
+                        <mat-error>Please enter budget of each person</mat-error>
+                    </mat-form-field>
+               <div class="button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="submit()">Submit</button>
+                <button mat-raised-button (click)="clear()">Clear</button>
+                <button mat-raised-button color="primary" (click)="showAll()">Show All Records</button>
+               </div>
+            </div>
+</form>
